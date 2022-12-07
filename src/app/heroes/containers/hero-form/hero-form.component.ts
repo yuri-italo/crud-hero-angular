@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, NonNullableFormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { HeroesService } from '../services/heroes.service';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-hero-form',
@@ -11,20 +11,20 @@ import { HeroesService } from '../services/heroes.service';
 })
 export class HeroFormComponent {
 
-  form: FormGroup;
+  form = this.formBuilder.group({
+    name: [''],
+    race: [''],
+    strength: [null],
+    agility: [null],
+    dexterity: [null],
+    intelligence: [null]
+  });
   
-  constructor(private formBuilder: FormBuilder, 
+  constructor(private formBuilder: NonNullableFormBuilder, 
     private service: HeroesService,
     private snackBar: MatSnackBar,
     private location: Location) {
-    this.form = this.formBuilder.group({
-      name: [null],
-      race: [null],
-      strength: [null],
-      agility: [null],
-      dexterity: [null],
-      intelligence: [null]
-    });
+    //this.form 
   }
 
   onSubmit() {

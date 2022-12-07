@@ -16,12 +16,12 @@ export class HeroesService {
     return this.httpClient.get<Hero[]>(this.API)
       .pipe(
         first(),
-        // delay(6000),
+        //delay(6000),
         tap(heroes => console.log(heroes))
       );
   }
 
-  save(record: Hero) {
+  save(record: Partial<Hero>) {
     return this.httpClient.post<Hero>(this.API,record).pipe(first());
   }
 }

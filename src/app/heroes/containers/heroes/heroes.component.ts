@@ -3,8 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { Hero } from '../model/hero';
-import { HeroesService } from '../services/heroes.service';
+import { Hero } from '../../model/hero';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-heroes',
@@ -13,8 +13,7 @@ import { HeroesService } from '../services/heroes.service';
 })
 export class HeroesComponent {
   heroes$: Observable<Hero[]>;
-  displayedColumns = ['id', 'name', 'race', 'actions'];
-
+  
   // heroesService: HeroesService;
 
   constructor(private heroesService: HeroesService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
@@ -34,8 +33,7 @@ export class HeroesComponent {
     });
   }
 
-  onAdd(): any {
-    console.log('test');
+  onAdd() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 }
