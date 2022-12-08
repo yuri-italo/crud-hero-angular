@@ -1,0 +1,61 @@
+<mat-card>
+    <mat-toolbar color="primary">Hero data</mat-toolbar>
+    <mat-card-content>
+        <form [formGroup]="form" class="min-width">
+            <mat-form-field class="full-width">
+                <mat-label>ID</mat-label>
+                <input matInput id="id" placeholder="ID" formControlName="id" [readonly]="true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput id="name" placeholder="void" formControlName="name" [readonly]="true">
+            </mat-form-field>
+        
+            <mat-form-field class="full-width">
+                <mat-label>Race</mat-label>
+                <input matInput id="race" placeholder="void" placeholder="Race" formControlName="race" [readonly]="true">
+            </mat-form-field>            
+
+            <mat-form-field class="full-width">
+                <mat-label>Strength</mat-label>
+                <input matInput id="strength" placeholder="void" type="number" min="0" max="10" formControlName="strength" [readonly]="true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Agility</mat-label>
+                <input matInput id="agility" placeholder="void" type="number" min="0" max="10" formControlName="agility" [readonly]="true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Dexterity</mat-label>
+                <input matInput id="dexterity" placeholder="void" type="number" min="0" max="10" formControlName="dexterity" [readonly]="true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Intelligence</mat-label>
+                <input matInput id="intelligence" placeholder="void" type="number" min="0" max="10" formControlName="intelligence" [readonly]="true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Created at</mat-label>
+                <input matInput id="created_at" placeholder="void" formControlName="created_at" [readonly]="true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Updated at</mat-label>
+                <input matInput id="updated_at" placeholder="void" formControlName="updated_at" [readonly]="true">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Enabled</mat-label>
+                <input matInput id="enabled" placeholder="void" formControlName="enabled" [readonly]="true">
+            </mat-form-field>
+
+        </form>
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <button mat-raised-button (click)="onCancel()">CANCEL</button>
+    </mat-card-actions>
+</mat-card>

@@ -20,7 +20,8 @@ export class HeroFormComponent {
     strength: [0],
     agility: [0],
     dexterity: [0],
-    intelligence: [0]
+    intelligence: [0],
+    enabled: ['']
   });
   
   constructor(
@@ -40,7 +41,8 @@ export class HeroFormComponent {
         strength: hero.power_stats.strength, 
         agility: hero.power_stats.agility, 
         dexterity: hero.power_stats.dexterity, 
-        intelligence: hero.power_stats.intelligence
+        intelligence: hero.power_stats.intelligence,
+        enabled: hero.enabled
       });
     
     console.log(hero);

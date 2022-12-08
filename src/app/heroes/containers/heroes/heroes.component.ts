@@ -63,4 +63,8 @@ export class HeroesComponent {
       this.snackBar.open('Hero removed!', 'X', {duration: 5000, verticalPosition: 'top', horizontalPosition: 'center'});
     }, () => this.onError('Error on deleting hero!'));
   }
+
+  onOpen(hero: Hero) {
+    this.router.navigate(['open', hero.id], {relativeTo: this.route});
+  }
 }

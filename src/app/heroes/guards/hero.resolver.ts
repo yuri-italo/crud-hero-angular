@@ -19,12 +19,9 @@ export class HeroResolver implements Resolve<Hero> {
 
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Hero> {
-    if(route.params && route.params['id']) {
-      console.log('test');
-      
+    if(route.params && route.params['id'])
       return this.service.loadById(route.params['id']);
-    }
-
-    return of({id: '', name: '', race: '', power_stats:{strength: 0, agility: 0, dexterity: 0, intelligence: 0}});
+    
+    return of({id: '', name: '', race: '', created_at: new Date(), updated_at: new Date(), enabled: '', power_stats:{strength: 0, agility: 0, dexterity: 0, intelligence: 0}});
   }
 }

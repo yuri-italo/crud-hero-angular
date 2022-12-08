@@ -8,13 +8,15 @@ import { SharedModule } from '../shared/shared.module';
 import { HeroFormComponent } from './containers/hero-form/hero-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeroesListComponent } from './components/heroes-list/heroes-list.component';
+import { HeroIdComponent } from './components/hero-id/hero-id.component';
 
 
 @NgModule({
   declarations: [
     HeroesComponent,
     HeroFormComponent,
-    HeroesListComponent
+    HeroesListComponent,
+    HeroIdComponent
   ],
   imports: [
     CommonModule,

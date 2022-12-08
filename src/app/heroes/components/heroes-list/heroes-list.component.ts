@@ -14,6 +14,7 @@ export class HeroesListComponent {
   @Output() add = new EventEmitter(false);
   @Output() edit = new EventEmitter(false);
   @Output() remove = new EventEmitter(false);
+  @Output() open = new EventEmitter(false);
 
   readonly displayedColumns = ['id', 'name', 'race', 'actions'];
 
@@ -30,6 +31,10 @@ export class HeroesListComponent {
 
   onDelete(hero: Hero) {
     this.remove.emit(hero);
+  }
+
+  onOpen(hero: Hero) {
+    this.open.emit(hero);
   }
 }
 

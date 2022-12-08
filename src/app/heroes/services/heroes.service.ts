@@ -25,7 +25,7 @@ export class HeroesService {
     return this.httpClient.get<Hero>(`${this.API}/${id}`);
   }
 
-  save(record: Partial<Hero>) { 
+  save(record: Partial<Hero>) {
     console.log(record);
     
     if(record.id) {
