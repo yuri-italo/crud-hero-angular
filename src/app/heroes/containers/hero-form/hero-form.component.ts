@@ -2,6 +2,8 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, NonNullableFormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { Hero } from '../../model/hero';
 import { HeroesService } from '../../services/heroes.service';
 
 @Component({
@@ -12,30 +14,48 @@ import { HeroesService } from '../../services/heroes.service';
 export class HeroFormComponent {
 
   form = this.formBuilder.group({
+    id: [''],
     name: [''],
     race: [''],
-    strength: [null],
-    agility: [null],
-    dexterity: [null],
-    intelligence: [null]
+    strength: [0],
+    agility: [0],
+    dexterity: [0],
+    intelligence: [0]
   });
   
-  constructor(private formBuilder: NonNullableFormBuilder, 
+  constructor(
+    private formBuilder: NonNullableFormBuilder, 
     private service: HeroesService,
     private snackBar: MatSnackBar,
-    private location: Location) {
-    //this.form 
+    private location: Location,
+    private route: ActivatedRoute
+  ) {
+
+    const hero: Hero = this.route.snapshot.data['hero']; 
+    this.form.patchValue(
+      {
+        id: hero.id, 
+        name: hero.name, 
+        race: hero.race, 
+        strength: hero.power_stats.strength, 
+        agility: hero.power_stats.agility, 
+        dexterity: hero.power_stats.dexterity, 
+        intelligence: hero.power_stats.intelligence
+      });
+    
+    console.log(hero);
+    
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe(result => this.onSucces(), error => this.onError());
+    this.service.save(this.form.value).subscribe(result => this.onSuccess(), error => this.onError());
   }
 
   onCancel() {
     this.location.back();
   }
 
-  private onSucces() {
+  private onSuccess() {
     this.snackBar.open('Hero created!', '', {duration: 5000});
     this.onCancel();
   }

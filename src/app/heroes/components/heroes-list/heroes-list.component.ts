@@ -12,6 +12,8 @@ import { Hero } from '../../model/hero';
 export class HeroesListComponent {
   @Input() heroes: Hero[] = [];
   @Output() add = new EventEmitter(false);
+  @Output() edit = new EventEmitter(false);
+  @Output() remove = new EventEmitter(false);
 
   readonly displayedColumns = ['id', 'name', 'race', 'actions'];
 
@@ -20,6 +22,14 @@ export class HeroesListComponent {
 
   onAdd() {
     this.add.emit(true);
+  }
+
+  onEdit(hero: Hero) {
+    this.edit.emit(hero);
+  }
+
+  onDelete(hero: Hero) {
+    this.remove.emit(hero);
   }
 }
 
