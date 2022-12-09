@@ -15,6 +15,7 @@ export class HeroesListComponent {
   @Output() edit = new EventEmitter(false);
   @Output() remove = new EventEmitter(false);
   @Output() open = new EventEmitter(false);
+  @Output() compare = new EventEmitter(false);
 
   readonly displayedColumns = ['id', 'name', 'race', 'actions'];
 
@@ -35,6 +36,10 @@ export class HeroesListComponent {
 
   onOpen(hero: Hero) {
     this.open.emit(hero);
+  }
+
+  onCompare() {    
+    this.compare.emit();
   }
 }
 

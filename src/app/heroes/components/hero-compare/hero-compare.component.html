@@ -1,0 +1,66 @@
+<mat-card>
+    <mat-toolbar color="primary">Hero Comparation</mat-toolbar>
+    <mat-card-content>
+        <form [formGroup]="form" class="min-width">
+            <mat-form-field class="full-width">
+                <mat-label>Hero 1: Name</mat-label>
+                <input matInput id="name" placeholder="Type a name" formControlName="heroName1">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Hero 2: Name</mat-label>
+                <input matInput id="name" placeholder="Type a name" formControlName="heroName2">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onCompare()">COMPARE</button>
+        <button mat-raised-button (click)="onCancel()">CANCEL</button>
+    </mat-card-actions>
+
+    <mat-table [dataSource]="data">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <mat-header-cell  *matHeaderCellDef> ID </mat-header-cell>
+            <mat-cell  *matCellDef="let hero"> {{ hero.id }} </mat-cell>
+          </ng-container>
+    
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let hero"> {{ hero.name }} </mat-cell>
+        </ng-container>
+    
+        <!-- Strength Column -->
+        <ng-container matColumnDef="strength">
+          <mat-header-cell *matHeaderCellDef> Strength </mat-header-cell>
+          <mat-cell *matCellDef="let hero"> {{ hero.strength }} </mat-cell>
+        </ng-container>
+
+        <!-- Strength Column -->
+        <ng-container matColumnDef="agility">
+            <mat-header-cell *matHeaderCellDef> Agility </mat-header-cell>
+            <mat-cell *matCellDef="let hero"> {{ hero.agility }} </mat-cell>
+        </ng-container>
+    
+        <!-- Strength Column -->
+        <ng-container matColumnDef="dexterity">
+            <mat-header-cell *matHeaderCellDef> Dexterity </mat-header-cell>
+            <mat-cell *matCellDef="let hero"> {{ hero.dexterity }} </mat-cell>
+        </ng-container>
+
+        <!-- Strength Column -->
+        <ng-container matColumnDef="intelligence">
+            <mat-header-cell *matHeaderCellDef> Intelligence </mat-header-cell>
+            <mat-cell *matCellDef="let hero"> {{ hero.intelligence }} </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</mat-card>

@@ -67,4 +67,8 @@ export class HeroesComponent {
   onOpen(hero: Hero) {
     this.router.navigate(['open', hero.id], {relativeTo: this.route});
   }
+
+  onCompare(heroes: Hero[]) {
+    this.router.navigate(['compare'], {relativeTo: this.route});
+  }
 }

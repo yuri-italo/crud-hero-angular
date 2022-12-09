@@ -31,7 +31,7 @@ export class HeroIdComponent {
 
     const hero: Hero = this.route.snapshot.data['hero']; 
     console.log(hero);
-    console.log(new Date(hero.created_at))
+    
     this.form.patchValue(
       {
         id: hero.id, 

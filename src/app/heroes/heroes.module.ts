@@ -9,6 +9,7 @@ import { HeroFormComponent } from './containers/hero-form/hero-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeroesListComponent } from './components/heroes-list/heroes-list.component';
 import { HeroIdComponent } from './components/hero-id/hero-id.component';
+import { HeroCompareComponent } from './components/hero-compare/hero-compare.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HeroIdComponent } from './components/hero-id/hero-id.component';
     HeroesComponent,
     HeroFormComponent,
     HeroesListComponent,
-    HeroIdComponent
+    HeroIdComponent,
+    HeroCompareComponent
   ],
   imports: [
     CommonModule,

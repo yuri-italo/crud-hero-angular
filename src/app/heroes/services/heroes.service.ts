@@ -3,6 +3,15 @@ import { Hero } from '../model/hero';
 import { HttpClient } from '@angular/common/http';
 import { delay, first, tap } from 'rxjs';
 
+export interface comparedheroes {
+  id: string,
+  name: string,
+  strength: number,
+  agility: number,
+  dexterity: number,
+  intelligence: number
+} 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -47,5 +56,10 @@ export class HeroesService {
 
   public remove(id: string) {
     return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+  }
+
+
+  compare(value: Partial<{heroName1: string;heroName2: string;}>) {
+    return this.httpClient.get<comparedheroes[]>(`${this.API}/compare?hero1Name=${value.heroName1}&hero2Name=${value.heroName2}`).pipe(first());
   }
 }
